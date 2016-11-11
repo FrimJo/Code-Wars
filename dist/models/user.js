@@ -1,0 +1,9 @@
+"use strict";
+class User {
+    constructor(name) {
+        this.name = name;
+    }
+}
+module.exports = User;
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vZGVscy91c2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTtJQUlDLFlBQW9CLElBQVk7UUFBWixTQUFJLEdBQUosSUFBSSxDQUFRO0lBRWhDLENBQUM7QUFDRixDQUFDO0FBRUQsaUJBQVMsSUFBSSxDQUFBIiwiZmlsZSI6Im1vZGVscy91c2VyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiY2xhc3MgVXNlciB7XG5cdHByaXZhdGUgaWQ6IG51bWJlclxuXHRwcml2YXRlIHJvb3RQYXRoOiBzdHJpbmdcblxuXHRjb25zdHJ1Y3Rvcihwcml2YXRlIG5hbWU6IHN0cmluZyl7XG5cblx0fVxufVxuXG5leHBvcnQgPSBVc2VyIl0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

@@ -1,0 +1,19 @@
+{
+  "globalDependencies": {
+    "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#d1f6bde13f2209be42e86c3686761e8bfcbb50a5",
+    "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#d1f6bde13f2209be42e86c3686761e8bfcbb50a5",
+    "node": "registry:dt/node#6.0.0+20161014191813",
+    "serve-static": "github:DefinitelyTyped/DefinitelyTyped/serve-static/serve-static.d.ts#d1f6bde13f2209be42e86c3686761e8bfcbb50a5",
+    "socket-io-client": "github:DefinitelyTyped/DefinitelyTyped/socket.io-client/socket.io-client.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+    "three": "registry:dt/three#0.0.0+20161004170959"
+  },
+  "filesGlob": [
+    "server/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "server/typings/globals",
+    "server/typings/index.d.ts"
+  ]
+}

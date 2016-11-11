@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "node-gameloop",
+        "scope": null,
+        "escapedName": "node-gameloop",
+        "name": "node-gameloop",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/fredrikjohansson/Google Drive/Hem/nodejs/code-wars"
+    ]
+  ],
+  "_from": "node-gameloop@latest",
+  "_id": "node-gameloop@0.1.0",
+  "_inCache": true,
+  "_location": "/node-gameloop",
+  "_npmUser": {
+    "name": "tangmi",
+    "email": "michael@conceptquanta.com"
+  },
+  "_npmVersion": "1.4.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "node-gameloop",
+    "scope": null,
+    "escapedName": "node-gameloop",
+    "name": "node-gameloop",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-gameloop/-/node-gameloop-0.1.0.tgz",
+  "_shasum": "2918d4b36cd7012c6207ffb515230227a3bb1405",
+  "_shrinkwrap": null,
+  "_spec": "node-gameloop",
+  "_where": "/Users/fredrikjohansson/Google Drive/Hem/nodejs/code-wars",
+  "author": {
+    "name": "tangmi"
+  },
+  "bugs": {
+    "url": "https://github.com/tangmi/node-gameloop/issues"
+  },
+  "dependencies": {},
+  "description": "game loop designed for node applications, not for the browser",
+  "devDependencies": {
+    "srun": "latest",
+    "usage": "^0.3.10"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "dist": {
+    "shasum": "2918d4b36cd7012c6207ffb515230227a3bb1405",
+    "tarball": "https://registry.npmjs.org/node-gameloop/-/node-gameloop-0.1.0.tgz"
+  },
+  "homepage": "https://github.com/tangmi/node-gameloop",
+  "keywords": [
+    "gameloop",
+    "game",
+    "loop",
+    "node",
+    "application",
+    "app",
+    "desktop"
+  ],
+  "license": "Artistic License 2.0",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "tangmi",
+      "email": "michael@conceptquanta.com"
+    }
+  ],
+  "name": "node-gameloop",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangmi/node-gameloop.git"
+  },
+  "scripts": {
+    "postpublish": "srun --script=postpublish",
+    "test": "node test/*"
+  },
+  "version": "0.1.0"
+}

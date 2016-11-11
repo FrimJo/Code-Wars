@@ -1,0 +1,10 @@
+<button (click)="save()">Save</button>
+<div ace-editor
+         [text]="scriptText"
+         [mode]="'javascript'"
+         [theme]="'xcode'"
+         [options]="options"
+         [readOnly]="false"
+         (textChanged)="saveScript($event)"
+         (window:keydown)="keydown($event)"
+         style="display:block; height: 80vh; width:100%"></div>

@@ -1,0 +1,24 @@
+<header
+	[class.show]="!hidden"
+	class="hide">
+	<div id="parent"
+	[style.height.px]="initialHeight">
+		<div id="header-container"	
+	    [style.height.px]="height()"
+	    [style.line-height.px]="height()"
+	    [style.top.px]="anchor()"
+	    (window:scroll)="onScroll($event)">
+			<h1
+			[style.opacity]="opacity()">
+			Script Wars</h1>
+		</div>
+	</div>
+	<div id="header-nav-bar">
+		<div id="header-nav-bar-buttons">
+			<a routerLink="/main/my-robot" routerLinkActive="active">My robot</a>
+			<a routerLink="/main" routerLinkActive="active">Arenas</a>
+			<a id="log-out-button" routerLink="/" role="button"  routerLinkActive="active" (click)="this.auth0Service.logout()">Log out</a>
+			<a routerLink="/main/webgl" routerLinkActive="active">WebGL</a>
+		</div>
+	</div>
+</header>

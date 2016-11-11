@@ -1,0 +1,106 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "honeyloops",
+        "scope": null,
+        "escapedName": "honeyloops",
+        "name": "honeyloops",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/fredrikjohansson/Google Drive/Hem/nodejs/code-wars"
+    ]
+  ],
+  "_from": "honeyloops@latest",
+  "_id": "honeyloops@0.3.0",
+  "_inCache": true,
+  "_location": "/honeyloops",
+  "_npmUser": {
+    "name": "zenoamaro",
+    "email": "zenoamaro@gmail.com"
+  },
+  "_npmVersion": "1.4.26",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "honeyloops",
+    "scope": null,
+    "escapedName": "honeyloops",
+    "name": "honeyloops",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/honeyloops/-/honeyloops-0.3.0.tgz",
+  "_shasum": "5248d0e05cbc1da570fe20c8732e49a98580db73",
+  "_shrinkwrap": null,
+  "_spec": "honeyloops",
+  "_where": "/Users/fredrikjohansson/Google Drive/Hem/nodejs/code-wars",
+  "author": {
+    "name": "zenoamaro",
+    "email": "zenoamaro@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/zenoamaro/honeyloops/issues",
+    "email": "zenoamaro@gmail.com"
+  },
+  "dependencies": {},
+  "description": "Micro batching and scheduling over animation frames.",
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "jshint": "^2.5.8",
+    "mocha": "^2.0.1",
+    "mocha-text-cov": "^0.1.0",
+    "should": "^4.1.0",
+    "sinon": "^1.11.1",
+    "travis-cov": "^0.2.5",
+    "uglify-js": "^2.4.15"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "5248d0e05cbc1da570fe20c8732e49a98580db73",
+    "tarball": "https://registry.npmjs.org/honeyloops/-/honeyloops-0.3.0.tgz"
+  },
+  "engines": {
+    "node": ">= 0.6.x"
+  },
+  "files": [
+    "honeyloops.js",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "gitHead": "af9972ac2be8f68623d97309cdb7fa3dd4df14ba",
+  "homepage": "https://github.com/zenoamaro/honeyloops",
+  "keywords": [
+    "batch",
+    "render",
+    "rendering",
+    "requestAnimationFrame"
+  ],
+  "license": "MIT",
+  "main": "honeyloops.js",
+  "maintainers": [
+    {
+      "name": "zenoamaro",
+      "email": "zenoamaro@gmail.com"
+    }
+  ],
+  "name": "honeyloops",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zenoamaro/honeyloops.git"
+  },
+  "scripts": {
+    "build": "make build",
+    "test": "make test"
+  },
+  "version": "0.3.0"
+}
