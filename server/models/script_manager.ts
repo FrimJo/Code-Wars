@@ -10,7 +10,7 @@ try{
 	
 }catch(err){
 
-	// If map does exist donnot create
+	// If map does exist do not create
 }
 
 export function saveScript(user_id: string, script: string): void {
@@ -44,7 +44,7 @@ export function getScript(user_id: string): string {
 		console.log('getScript.statSync: File does not exist')
 
 		// Create base text
-		let text = "module.exports.run = function(myRobot) {\n\t// Please enter your code here\n}";
+		let text = "var Physics = require('physicsjs');\n\nmodule.exports.init = function(myRobot, currentArena) {\n\t// Please enter your init code here\n};\n\nmodule.exports.run = function() {\n\t// Please enter your loop code here\n};";
 		
 		// Create file
 		fs.writeFileSync(fileName, text)
@@ -60,7 +60,8 @@ export function removeScript(user_id: string): void {
 	let fileName: string = path + user_id + '.js';
 	
 	if(fs.statSync(fileName)) {
-		fs.unlikSync(fileName)
+		// TODO: remove script
+		//fs.unlikSync(fileName) <= depricated
 	}
 
 }

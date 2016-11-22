@@ -3,7 +3,7 @@ import Arena = require('./arena')
 class SocketManager {
 	
 	private io
-	private arena: Arena
+	private arena
 
 	constructor() {
 		this.arena = Arena.getInstance()
@@ -13,23 +13,30 @@ class SocketManager {
 		let arena = this.arena
 		
 		this.io = require('socket.io')(server)
-		.on('connection', function(socket){
+		.on('connection', (socket) => {
 		
 	        console.log('a robot connected')
+			if(socket.handshake.query) {
+				console.log("Query: ", socket.handshake.query);
+			}
 
 	        /* Start listen for ticks */
-	        let tickListener = function(){
+	        let tickListener = function(bodies){
 
-				// Get all positions of robots from arena
-        		let positions = arena.getPosition()
-        		socket.emit('positions', JSON.stringify(positions))
+				// Get all bodies of robots from arena
+				socket.emit('bodies', JSON.stringify(bodies))
 	        }
 
-	        // Add listener for tick
+	        let errorListener = function(err) {
+				socket.emit('err', JSON.stringify(err.message))
+			}
+
+	        // Add listener
 	        arena.addTickListener(tickListener)
+			arena.addErrorListener(errorListener)
 
         	// On user disconnect
-	        socket.on('disconnectEvent', function(){
+	        socket.on('disconnectEvent', () => {
 	            console.log('robot disconnected')
 
 	            // Remove tick listener

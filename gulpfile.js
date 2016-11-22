@@ -69,6 +69,7 @@ var jsNPMDependencies = [
     'reflect-metadata/Reflect.js',
     'systemjs/dist/system.src.js',
     'node-gameloop/**/*',
+    'physicjs/**/*',
 
     'rxjs/**/*',
     'angular-in-memory-web-api/**/*',

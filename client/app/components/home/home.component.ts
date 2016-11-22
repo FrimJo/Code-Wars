@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core'
+import {Component, ElementRef, ViewChild, OnInit, NgZone} from '@angular/core'
 import { ArenaService } from '../../services/arena.service'
 import { SocketService }  from '../../services/socket.service'
 
@@ -16,36 +16,50 @@ export class HomeComponent implements OnInit {
 
     private _width: number = 640
     private _height: number = 480
+    private _canvas;
     private _context;
+    private _drawId;
+    private _bodies = [];
 
     constructor(
         private arenaService: ArenaService,
-        private socketService: SocketService
+        private socketService: SocketService,
+        private ngZone: NgZone
         ) {}
 
     ngOnInit() {
 
         // Set up context
-        let canvas = this.canvasRef.nativeElement
-        let context = canvas.getContext('2d')
-
-        // Save context
-        this._context = context
-
+        this._canvas = this.canvasRef.nativeElement
+        this._context = this._canvas.getContext('2d')
 
     	this.arenaService.join()
-        this.socketService.getMessages('positions').subscribe(
-            (message: string) => {
 
-                // Clear screen for new draw
-                context.clearRect(0, 0, canvas.width, canvas.height);
+        this.socketService.getMessages('bodies').subscribe(
+            (bodies: string) => this._bodies = JSON.parse(bodies)
+        )
 
-                let positions = JSON.parse(message)
-                positions.map(position => this.drawRobotAt(position, '#FF0000'))
-            })
+        this.socketService.getMessages('err').subscribe(
+            (err: string) => console.log(JSON.parse(err))
+        )
+
+        // Set up draw loop
+        this._drawId = this.ngZone.runOutsideAngular(() => { return requestAnimationFrame(() => this._draw()) })
     }
 
-    drawRobotAt(position, color) {
+    // Runs each frame
+    private _draw(){
+        requestAnimationFrame(() => this._draw())
+
+        // Clear screen for new draw
+        this._context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+
+        // Draw all available bodies
+        this._bodies.map(body => this._drawRobotAt(body.position, '#FF0000'))
+
+    }
+
+    private _drawRobotAt(position, color) {
 
         // Draw robot on position
         let circle = new Path2D()
@@ -57,5 +71,7 @@ export class HomeComponent implements OnInit {
 
     ngOnDestroy() {
     	this.arenaService.leave()
+        cancelAnimationFrame(this._drawId)
+        this._drawId = null
     }
 }
