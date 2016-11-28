@@ -1,3 +1,4 @@
+let UUID = require('node-uuid')
 import Arena = require('./arena')
 
 class SocketManager {
@@ -16,9 +17,9 @@ class SocketManager {
 		.on('connection', (socket) => {
 
 	        console.log('a robot connected')
-			let isServer = socket.handshake.query
+			let isServer = socket.handshake.query.isServer
 
-			// If we got a qurey
+			// If we got a query
 			if (isServer != null) {
 
 				console.log("Query: " + isServer)
@@ -31,16 +32,25 @@ class SocketManager {
 
 				    // Set up the connection as a server connection
 					this.setupServer(socket)
+
 				} else {
 
                     // Set up the connection as a client connection
 					this.setupClient(socket)
 				}
 
-                // Create data data object
-                let data = {id: socket.userid}
+                // Get the script object
+                let script = {},
+                    run = function(entity:any, tpf:number){ console.log('run'); },
+                    setup = function(entity:any){ console.log('setup'); }; //Entity
 
-                // Send onconnected message
+                // Create data object
+                let data = {
+				    id: socket.userid,
+                    script: JSON.stringify(script)
+				}
+
+                // Send onconnected message together with the data object
                 socket.emit('onconnected', data )
 
 			}
@@ -75,6 +85,14 @@ class SocketManager {
 
 	private setupServer(server) {
 
+	    // Set up listener for receive state
+        server.on('state', stateJSON => {
+            let state = JSON.parse(stateJSON)
+            console.log('state received')
+            console.log(state)
+
+            // Pass the state forward to all connected clients.
+        })
 	}
 
 	private setupClient(client) {
