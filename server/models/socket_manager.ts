@@ -14,13 +14,38 @@ class SocketManager {
 		
 		this.io = require('socket.io')(server)
 		.on('connection', (socket) => {
-		
+
 	        console.log('a robot connected')
-			if(socket.handshake.query) {
-				console.log("Query: ", socket.handshake.query);
+			let isServer = socket.handshake.query
+
+			// If we got a qurey
+			if (isServer != null) {
+
+				console.log("Query: " + isServer)
+
+                // Set up unique identification
+                socket.userid = UUID()
+
+                // If connected user is server
+				if (isServer) {
+
+				    // Set up the connection as a server connection
+					this.setupServer(socket)
+				} else {
+
+                    // Set up the connection as a client connection
+					this.setupClient(socket)
+				}
+
+                // Create data data object
+                let data = {id: socket.userid}
+
+                // Send onconnected message
+                socket.emit('onconnected', data )
+
 			}
 
-	        /* Start listen for ticks */
+			/*
 	        let tickListener = function(bodies){
 
 				// Get all bodies of robots from arena
@@ -42,10 +67,18 @@ class SocketManager {
 	            // Remove tick listener
 	            arena.removeTickListener(tickListener)
 
-	        })
+	        })*/
 
 	    })
 	    console.log('socket.io initiated')
+	}
+
+	private setupServer(server) {
+
+	}
+
+	private setupClient(client) {
+
 	}
 }
 
